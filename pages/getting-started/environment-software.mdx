@@ -1,0 +1,127 @@
+---
+sidebarTitle: Môi trường và công cụ
+---
+
+import { Table, Td, Th, Tr } from "nextra/components";
+
+# Môi trường và công cụ phát triển
+
+## Mục lục 🔍
+
+1. [Git:](#git) Theo dõi và quản lý các thay đổi trong mã nguồn hiệu quả.
+2. [NodeJS:](#nodejs) Môi trường chạy JavaScript phía máy chủ.
+3. [Noodl:](#noodl) Xây dựng ứng dụng full-stack thông qua giao diện kéo thả cùng với AI **(Low-Code)**.
+4. [Strapi:](#strapi) Xây dựng API nhanh gắp nhiều lần thông qua giao diện **(Low-Code)**.
+5. [MySQL:](#mysql) Hệ quản trị cơ sở dữ liệu quan hệ.
+6. [Docker:](#docker) Tạo, triển khai và chạy các ứng dụng trong container.
+7. [Docker Compose:](#docker-compose) Định nghĩa và quản lý nhiều container trong một ứng dụng.
+8. [React Native:](#react-native) Cho phép phát triển ứng dụng di động đa nền tảng (iOS và Android).
+
+### Git
+
+Công cụ miễn phí và mã nguồn mở, Git là một hệ thống quản lý phiên bản phân tán (distributed version control system), cho phép theo dõi và quản lý các thay đổi trong mã nguồn hoặc các tệp dự án.
+Hỗ trợ làm việc nhóm hiệu quả bằng cách lưu trữ lịch sử thay đổi, hợp nhất code từ nhiều người, và xử lý xung đột trong mã nguồn. Git thường được sử dụng cùng với các dịch vụ lưu trữ như [GitHub](https://github.com), [GitLab](https://about.gitlab.com), ...
+
+Xem chi tiết và cài đặt Git tương thích với hệ điều hành máy tính của bạn [tại đây](https://git-scm.com/).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/git.png" style={{ width: 500, margin: "0 auto" }} />
+</div>
+
+Sau khi đã cài đặt, mở Terminal và gõ dòng lệnh sau để kiểm tra phiên bản:
+
+```bash copy
+git --version
+```
+
+### NodeJS
+
+**NodeJS** là một môi trường chạy JavaScript phía máy chủ, được xây dựng trên V8 JavaScript Engine (của Google Chrome), chạy được trên nhiều hệ điều hành (Windows, maxOS, Linux).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/nodejs.png" style={{ margin: "0 auto" }} />
+</div>
+
+Xem chi tiết và cài đặt NodeJS mới nhất [tại đây](https://nodejs.org/en/download/package-manager).
+
+Để tránh phát sinh lỗi khi mọi người cùng đóng góp phát triển dự án, có thể cài đặt phiên bản [Node-v20.18.1](https://nodejs.org/dist/v20.18.1/node-v20.18.1-x64.msi), đây là phiên bản hiện tại sử dụng để phát triển dự án này.
+
+Sau khi đã cài đặt, mở Terminal và gõ dòng lệnh sau để kiểm tra phiên bản:
+
+```bash copy
+node --version
+```
+
+và
+
+```bash copy
+npm --version
+```
+
+npm là trình quản lý gói dành cho NodeJS.
+
+### Noodl
+
+Một công cụ mã nguồn mở xây dựng ứng dụng web, trên nền tảng **Low-Code** tạo nhanh ứng dụng một cách thông minh. Với môi trường phát triển trực quan, hiện đại, không yêu cầu kỹ năng viết code.
+
+Truy cập trang chủ của [**Noodl**](https://www.noodl.net/) để xem thêm chi tiết.
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/noodl.png" style={{ margin: "0 auto" }} />
+</div>
+
+Xem tài liệu hướng dẫn của **Noodl** [tại đây](https://noodlapp.github.io/noodl-docs/).
+
+Cài đặt công cụ **Noodl Editor** mới nhất [tại đây](https://github.com/noodlapp/noodl/releases).
+
+### Strapi
+
+**Strapi** là một headless CMS (Content Management System) mã nguồn mở được xây dựng bằng NodeJS, cho phép tạo và quản lý nội dung các API dễ dàng thông qua một giao diện quản trị trực quan **(Low-Code)**.
+
+Truy cập trang chủ của **Strapi** [tại đây](https://strapi.io/).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/strapi.png" style={{ margin: "0 auto" }} />
+</div>
+
+Xem tài liệu hướng dẫn của **Strapi** [tại đây](https://docs.strapi.io/).
+
+### MySQL
+
+**MySQL** là một hệ quản trị cơ sở dữ liệu quan hệ (RDBMS - Relational Database Management System) mã nguồn mở, được phát triển bởi **Oracle Corporation**. Nó sử dụng ngôn ngữ **SQL** (Structured Query Language) để truy vấn và quản lý dữ liệu.
+
+Xem chi tiết và cài đặt [tại đây](https://www.mysql.com/).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/mysql.png" style={{ margin: "0 auto" }} />
+</div>
+
+### Docker
+
+**Docker** là một nền tảng mã nguồn mở giúp tạo, triển khai và chạy các ứng dụng trong container. Container chứa tất cả các thành phần cần thiết (code, thư viện, công cụ) để chạy ứng dụng, đảm bảo nó hoạt động ổn định trên bất kỳ môi trường nào.
+
+Xem chi tiết và cài đặt Docker tương thích với hệ điều hành [tại đây](https://www.docker.com/).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/docker.png" style={{ margin: "0 auto" }} />
+</div>
+
+### Docker Compose
+
+**Docker Compose** là một công cụ đi kèm với Docker, cho phép định nghĩa và quản lý nhiều container trong một ứng dụng thông qua một tệp cấu hình đơn giản (thường là docker-compose.yml).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/docker-compose.png" style={{ margin: "0 auto" }} />
+</div>
+
+Xem chi tiết hướng dẫn [tại đây](https://docs.docker.com/compose/).
+
+### React Native
+
+**React Native** là một framework phát triển ứng dụng di động, cho phép lập trình viên phát triển các ứng dụng di động đa nền tảng bằng cách sử dụng ngôn ngữ JavaScript và thư viện React để xây dựng giao diện người dùng.
+
+Xem chi tiết tại [trang chủ](https://reactnative.dev).
+
+<div style={{ marginTop: 10 }}>
+  <img src="/img/react-native.png" style={{ margin: "0 auto" }} />
+</div>
