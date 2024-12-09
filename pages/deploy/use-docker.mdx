@@ -1,23 +1,148 @@
 import { Table, Td, Th, Tr } from "nextra/components";
+import { Steps } from "nextra/components";
 
 # **Triển khai dự án sử dụng Docker Compose**
 
-```bash
-# 1. Clone dự án
+## 🛠️ Yêu cầu hệ thống
+
+- **Hệ điều hành:** Ubuntu Server 20.04
+- **Git:** phiên bản mới nhất, chi tiết và cài đặt trên trang chủ [Git](https://git-scm.com).
+- **NodeJS:** phiên bản 20 trở lên, chi tiết và cài đặt trên [NodeJS Download Package Manager](https://nodejs.org/en/download/package-manager).
+- **Docker và Docker Compose:** chi tiết và cài đặt trên trang chủ [Docker](https://www.docker.com).
+- Xem thêm các công cụ khác nếu bạn muốn tham gia phát triển dự án tại [UniHand Documentation](https://docs.unihand.site/getting-started/environment-software)
+
+## Cài đặt Docker và Docker Compose
+
+<Steps>
+
+### Cài đặt Docker
+
+- Cập nhật danh sách package:
+
+```bash copy
+sudo apt update
+```
+
+- Cài đặt các gói phụ thuộc:
+
+```bash copy
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+
+- Thêm khóa GPG cho kho Docker:
+
+```bash copy
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+- Thêm kho Docker vào nguồn APT:
+
+```bash copy
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+```
+
+- Đảm bảo bạn sắp cài đặt từ repo Docker thay vì repo Ubuntu mặc định:
+
+```bash copy
+apt-cache policy docker-ce
+```
+
+- Bạn sẽ thấy kết quả như thế này, mặc dù số phiên bản của Docker có thể khác:
+
+```bash copy /5:19.03.9~3-0~ubuntu-focal/
+docker-ce:
+  Installed: (none)
+  Candidate: 5:19.03.9~3-0~ubuntu-focal
+  Version table:
+     5:19.03.9~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+```
+
+- Cài đặt Docker:
+
+```bash copy
+sudo apt install docker-ce
+```
+
+- Sau khi cài đặt xong Docker, kiểm tra trạng thái của Docker:
+
+```bash copy
+sudo systemctl status docker
+```
+
+- Kết quả phải tương tự như sau, cho thấy Docker đang hoạt động và đang chạy:
+
+```bash /active/
+Output● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2020-05-19 17:00:41 UTC; 17s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 24321 (dockerd)
+      Tasks: 8
+     Memory: 46.4M
+     CGroup: /system.slice/docker.service
+             └─24321 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```
+
+### Cài đặt Docker Compose
+
+- Lệnh sau sẽ tải xuống Docker Compose phiên bản `1.29.2` và lưu tệp thực thi tại `/usr/local/bin/docker-compose`:
+
+```bash copy
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+- Cấp quyền để lệnh `docker-compose` có thể thực thi được:
+
+```bash copy
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+- Để kiểm tra Docker Compose đã cài đặt thành công hay chạy lệnh:
+
+```bash copy
+docker-compose --version
+```
+
+- Bạn sẽ thấy kết quả tương tự thế này:
+
+```bash /1.29.2/
+Output
+docker-compose version 1.29.2, build 5becea4c
+```
+
+</Steps>
+
+## 💻 Triển khai hệ thống
+
+<Steps>
+
+### Clone dự án
+
+```bash copy
 git clone https://github.com/TVU-OPS/UniHand.git
+```
 
-# 2. Di chuyển vào thư mục dự án
+### Di chuyển vào thư mục dự án
+
+```bash copy
 cd UniHand
+```
 
-# 3. Khởi tạo các biến môi trường cần thiết
+### Khởi tạo các biến môi trường cần thiết
+
+```bash copy
 npm run genv
+```
 
-# Sau khi khởi tạo xong, bạn có thể truy cập tệp tin .env hệ thống vừa tạo để sửa biến môi trường cho phù hợp.
-# Hoặc hệ thống sẽ lấy giá trị mặc định và vẫn hoạt động bình thường.
+### Build và chạy dự án
 
-# 4. Build và chạy dự án.
+```bash copy
 docker compose up -d
 ```
+
+</Steps>
 
 Mặc định hệ thống sẽ chạy trên:
 
@@ -59,8 +184,7 @@ Mặc định hệ thống sẽ chạy trên:
       <Td>web-admin</Td>
       <Td>81:80</Td>
       <Td>
-        Trang quản trị, sử dụng{" "}
-        <span style={{ fontWeight: "bold" }}>Noodl</span>
+        Trang quản trị, sử dụng <span style={{ fontWeight: "bold" }}>Noodl</span>
       </Td>
     </Tr>
     <Tr>
