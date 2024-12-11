@@ -135,6 +135,8 @@ cd UniHand
 ```bash copy
 npm run genv
 ```
+- Bạn có thể thay đổi IP hoặc tên miền thành IP hoặc tên miền server của bạn trong tệp tin **.env** hệ thống vừa tạo tương ứng với hai biến môi trường **HOME_DOMAIN** và **ADMIN_DOMAIN**.
+
 
 ### Build và chạy dự án
 
@@ -143,12 +145,6 @@ docker compose up -d
 ```
 
 </Steps>
-
-Mặc định hệ thống sẽ chạy trên:
-
-- Trang chủ: [http://localhost](http://localhost).
-- Trang quản trị: [http://admin.localhost](http://admin.localhost).
-- Nếu trên môi trường server, bạn có thể thay đổi tên miền localhost thành IP hoặc tên miền của bạn trong tệp tin **.env** hệ thống vừa tạo ở **bước 3** tương ứng với hai biến môi trường **HOME_DOMAIN** và **ADMIN_DOMAIN**.
 
 #### Các Port hệ thống sử dụng sau khi đã chạy thành công
 
